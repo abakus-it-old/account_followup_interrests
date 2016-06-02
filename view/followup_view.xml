@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	 <record id="account_followup_interest_form" model="ir.ui.view">
+            <field name="name">account.followup_interest_form</field>
+            <field name="model">account_followup.followup</field>
+            <field name="inherit_id" ref="account_followup.view_account_followup_followup_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="(//field[@name='followup_line'])" position="before">
+                    <group string="Late Interests">
+                        <field name="monthly_late_interest_percentage" />
+                        <field name="late_allowance_percentage" />
+                        <field name="late_allowance_minimum" />
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="partner_followup_interests_form" model="ir.ui.view">
+            <field name="name">partner.followup_interests_form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account_followup.view_partner_inherit_followup_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="(//field[@name='result'])" position="after">
+                    <field name="payments_interests" />
+                    <field name="payments_allowances" />
+                </xpath>
+                <xpath expr="(//field[@name='payment_amount_due'])" position="before">
+                    <field name="payments_sum_of_interests" />
+                    <field name="payments_sum_of_allowances" />
+                </xpath>
+                <xpath expr="(//field[@name='payment_amount_due'])" position="after">
+                    <field name="payments_sum_due" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="account_move_line_interests_form" model="ir.ui.view">
+            <field name="name">account.move_line_interests_form</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_move_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="(//field[@name='followup_date'])" position="after">
+                    <field name="payments_interests" />
+                    <field name="payments_allowances" />
+                </xpath>
+            </field>
+        </record>
+
+        <template id="account_followup.report_followup_with_interests" inherit_id="account_followup.report_followup">
+            <xpath expr="//p[last()]" position="after">
+                <p>Total of due interests: <span t-field="o.payments_sum_of_interests"/></p>
+                <p>Total of due allowances: <span t-field="o.payments_sum_of_allowances"/></p>
+                <p>Total Due: <span t-field="o.payments_sum_due"/></p>
+            </xpath>
+        </template>
+    </data>
+</openerp>
