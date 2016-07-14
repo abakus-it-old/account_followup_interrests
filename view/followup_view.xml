@@ -48,10 +48,25 @@
         </record>
 
         <template id="account_followup.report_followup_with_interests" inherit_id="account_followup.report_followup">
-            <xpath expr="//p[last()]" position="after">
-                <p>Total of due interests: <span t-field="o.payments_sum_of_interests"/></p>
-                <p>Total of due allowances: <span t-field="o.payments_sum_of_allowances"/></p>
-                <p>Total Due: <span t-field="o.payments_sum_due"/></p>
+            <xpath expr="//t[@t-set='total']/following-sibling::p[1]" position="replace">
+                <table class="table-condensed" style="margin-top: 20px; border: 1px solid black;">
+                    <tr>
+                        <td width="80px">Total:</td>
+                        <td width="60px"><span t-esc="formatLang(total, currency_obj=cur_lines['currency'])"/></td>
+                    </tr>
+                    <tr>
+                        <td>Total of due interests:</td>
+                        <td><span t-esc="formatLang(o.partner_id.payments_sum_of_interests, currency_obj=cur_lines['currency'])"/></td>
+                    </tr>
+                    <tr>
+                        <td>Total of due allowances:</td>
+                        <td><span t-esc="formatLang(o.partner_id.payments_sum_of_allowances, currency_obj=cur_lines['currency'])"/></td>
+                    </tr>
+                    <tr style="border-top: 1px solid black;">
+                        <td><b>Total Due:</b></td>
+                        <td><b><span t-esc="formatLang(o.partner_id.payments_sum_due, currency_obj=cur_lines['currency'])"/></b></td>
+                    </tr>
+                </table>
             </xpath>
         </template>
     </data>
