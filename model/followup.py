@@ -20,7 +20,7 @@ class account_move_line(models.Model):
 
     @api.one
     def _compute_payments_interests(self):
-        if not self.blocked:
+        if not self.blocked and self.date_maturity:
             balance = self.debit - self.credit
             cr = self.env.cr
             uid = self.env.uid
