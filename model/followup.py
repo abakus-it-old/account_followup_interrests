@@ -2,6 +2,7 @@ from openerp import models, fields, api
 import datetime
 from datetime import date
 import time
+from openerp.tools.translate import _
 import logging
 _logger = logging.getLogger(__name__)
     
@@ -79,11 +80,3 @@ class partnerWithInterest(models.Model):
     @api.one
     def _compute_payments_sum_due(self):
         self.payments_sum_due = self.payment_amount_due + self.payments_sum_of_interests + self.payments_sum_of_allowances
-
-    def get_followup_with_interests_table_html(self, cr, uid, ids, context=None):
-        _logger.debug("TEST TEST TEST \n\n\n")
-        followup_table = super(partnerWithInterest, self).get_followup_table_html(self, cr, uid, ids, context)
-        followup_table += '''<tr> </tr>
-                            </table>
-                            <center>''' + _("Total Amount due") + ''' : 42euros </center>'''
-        return followup_table
