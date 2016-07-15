@@ -158,13 +158,13 @@ msgstr "Geschuldeter Gesamtbetrag"
 #: code:addons/account_followup_interrests/model/partner.py:194
 #, python-format
 msgid "Total of due allowances"
-msgstr "Summe der geschuldeten Freibetragäge"
+msgstr "Entschädigungspauschale"
 
 #. module: account_followup_interrests
 #: code:addons/account_followup_interrests/model/partner.py:191
 #, python-format
 msgid "Total of due interests"
-msgstr "Summe der geschuldeten Zinsen"
+msgstr "Verzugszinsen"
 
 #. module: account_followup_interrests
 #: code:addons/account_followup_interrests/model/partner.py:211
