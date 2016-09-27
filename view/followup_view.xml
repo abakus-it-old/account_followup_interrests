@@ -4,18 +4,20 @@
 	 <record id="account_followup_interest_form" model="ir.ui.view">
             <field name="name">account.followup_interest_form</field>
             <field name="model">account_followup.followup</field>
-            <field name="inherit_id" ref="account_followup.view_account_followup_followup_form"/>
+            <field name="inherit_id" ref="account_reports_followup.view_account_followup_followup_form"/>
             <field name="arch" type="xml">
-                <xpath expr="(//field[@name='followup_line'])" position="before">
+                <xpath expr="(//field[@name='followup_line_ids'])" position="before">
                     <group string="Late Interests">
-                        <field name="monthly_late_interest_percentage" />
-                        <field name="late_allowance_percentage" />
-                        <field name="late_allowance_minimum" />
+                        <group>
+                            <field name="late_interest_percentage" />
+                            <field name="late_allowance" widget="monetary" />
+                        </group>
                     </group>
                 </xpath>
             </field>
         </record>
 
+        <!--
         <record id="partner_followup_interests_form" model="ir.ui.view">
             <field name="name">partner.followup_interests_form</field>
             <field name="model">res.partner</field>
@@ -34,6 +36,7 @@
                 </xpath>
             </field>
         </record>
+        -->
 
         <record id="account_move_line_interests_form" model="ir.ui.view">
             <field name="name">account.move_line_interests_form</field>
@@ -41,13 +44,13 @@
             <field name="inherit_id" ref="account.view_move_line_form"/>
             <field name="arch" type="xml">
                 <xpath expr="(//field[@name='followup_date'])" position="after">
-                    <field name="payments_interests" />
-                    <field name="payments_allowances" />
+                    <field name="payments_interests" attrs="{'invisible': [('full_reconcile_id','!=',False)]}"/>
+                    <field name="payments_allowances" attrs="{'invisible': [('full_reconcile_id','!=',False)]}" />
                 </xpath>
             </field>
         </record>
 
-        <template id="account_followup.report_followup_with_interests" inherit_id="account_followup.report_followup">
+        <!--<template id="account_followup.report_followup_with_interests" inherit_id="account_followup.report_followup">
             <xpath expr="//t[@t-as='cur_lines']" position="replace">
                 <t t-foreach="getLines(o)" t-as="cur_lines">
                     <table class="table table-condensed" style="margin-top: 50px;">
@@ -100,5 +103,6 @@
                 </t>
             </xpath>
         </template>
+        -->
     </data>
 </openerp>
