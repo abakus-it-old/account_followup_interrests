@@ -10,3 +10,9 @@ class account_followup(models.Model):
 
     late_interest_percentage = fields.Integer(string="Late interest (%)")
     late_allowance = fields.Float(string="Late allowance")
+
+class account_followup_line(models.Model):
+    _inherit = ['account_followup.followup.line']
+
+    compute_interests = fields.Boolean(string="Compute interests")
+    compute_allowance = fields.Boolean(string="Compute allowance")
