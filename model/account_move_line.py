@@ -29,7 +29,12 @@ class account_move_line(models.Model):
             followup = followup[0]
 
         for line in self:
-            if line.followup_line_id.compute_interests and not line.full_reconcile_id and not line.blocked and line.date_maturity:
+            # check if date exceeded and we have to compute interests
+            check = False
+            for f_line in followup.followup_line_ids:
+                if f_line.delay < line.late_days and f_line.compute_interests:
+                    check = True
+            if check and not line.full_reconcile_id and not line.blocked and line.date_maturity:
                 balance = abs(line.debit - line.credit)
                 if line.late_days > 0:
                     pc = float(followup.late_interest_percentage) / 100
@@ -48,7 +53,12 @@ class account_move_line(models.Model):
             followup = followup[0]
 
         for line in self:
-            if line.followup_line_id.compute_allowance and not line.full_reconcile_id and not line.blocked:
+            # check if date exceeded and we have to compute interests
+            check = False
+            for f_line in followup.followup_line_ids:
+                if f_line.delay < line.late_days and f_line.compute_allowance:
+                    check = True
+            if check and not line.full_reconcile_id and not line.blocked:
                 if line.late_days > 0:
                     balance = line.debit - line.credit
                     line.payments_allowances = followup.late_allowance
