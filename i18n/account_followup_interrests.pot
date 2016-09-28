@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0-20150625\n"
+"Project-Id-Version: Odoo Server 9.0e-20160901\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-14 15:04+0000\n"
-"PO-Revision-Date: 2016-07-14 15:04+0000\n"
+"POT-Creation-Date: 2016-09-27 14:13+0000\n"
+"PO-Revision-Date: 2016-09-27 14:13+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,64 +16,104 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: account_followup_interrests
+#: code:addons/account_followup_interrests/model/account_followup_report.py:147
+#: code:addons/account_followup_interrests/model/account_followup_report.py:148
+#, python-format
+msgid " Date "
+msgstr ""
+
+#. module: account_followup_interrests
+#: code:addons/account_followup_interrests/model/account_followup_report.py:147
+#: code:addons/account_followup_interrests/model/account_followup_report.py:148
+#, python-format
+msgid " Due Date "
+msgstr ""
+
+#. module: account_followup_interrests
+#: code:addons/account_followup_interrests/model/account_followup_report.py:148
+#, python-format
+msgid " Excluded "
+msgstr ""
+
+#. module: account_followup_interrests
+#: code:addons/account_followup_interrests/model/account_followup_report.py:148
+#, python-format
+msgid " Expected Date "
+msgstr ""
+
+#. module: account_followup_interrests
+#: code:addons/account_followup_interrests/model/account_followup_report.py:147
+#: code:addons/account_followup_interrests/model/account_followup_report.py:148
+#, python-format
+msgid " Total Due "
+msgstr ""
+
+#. module: account_followup_interrests
+#: model:ir.model,name:account_followup_interrests.model_account_report_context_followup
+msgid "A particular context for the followup report"
+msgstr ""
+
+#. module: account_followup_interrests
+#: model:ir.model,name:account_followup_interrests.model_account_report_context_followup_all
+msgid "A progress bar for followup reports"
+msgstr ""
+
+#. module: account_followup_interrests
 #: model:ir.model,name:account_followup_interrests.model_account_followup_followup
 msgid "Account Follow-up"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:158
+#: code:addons/account_followup_interrests/model/account_followup_report.py:148
+#, python-format
+msgid "Allowance"
+msgstr ""
+
+#. module: account_followup_interrests
+#: code:addons/account_followup_interrests/model/account_followup_report.py:127
+#, python-format
+msgid "Allowance Total"
+msgstr ""
+
+#. module: account_followup_interrests
+#: code:addons/account_followup_interrests/model/account_followup_report.py:147
 #, python-format
 msgid "Allowances"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:156
+#: code:addons/account_followup_interrests/model/account_followup_report.py:147
+#: code:addons/account_followup_interrests/model/account_followup_report.py:148
 #, python-format
 msgid "Amount"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:188
-#, python-format
-msgid "Amount due"
+#: model:ir.model.fields,field_description:account_followup_interrests.field_account_move_line_payments_allowances
+msgid "Due allowances"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:153
-#, python-format
-msgid "Description"
+#: model:ir.model.fields,field_description:account_followup_interrests.field_account_move_line_payments_interests
+msgid "Due interests"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:155
-#, python-format
-msgid "Due Date"
+#: model:ir.model,name:account_followup_interrests.model_account_followup_report
+msgid "Followup Report"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:112
-#, python-format
-msgid "Email not sent because of email address of partner not filled in"
-msgstr ""
-
-#. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:234
-#: code:addons/account_followup_interrests/model/partner.py:240
-#: code:addons/account_followup_interrests/model/report.py:89
-#, python-format
-msgid "Error!"
-msgstr ""
-
-#. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:157
+#: code:addons/account_followup_interrests/model/account_followup_report.py:147
+#: code:addons/account_followup_interrests/model/account_followup_report.py:148
 #, python-format
 msgid "Interests"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:152
+#: code:addons/account_followup_interrests/model/account_followup_report.py:115
 #, python-format
-msgid "Invoice Date"
+msgid "Interests Total"
 msgstr ""
 
 #. module: account_followup_interrests
@@ -82,35 +122,30 @@ msgid "Journal Items"
 msgstr ""
 
 #. module: account_followup_interrests
-#: view:account_followup.followup:account_followup_interrests.account_followup_interest_form
+#: model:ir.model.fields,field_description:account_followup_interrests.field_account_move_line_late_days
+msgid "Late Days"
+msgstr ""
+
+#. module: account_followup_interrests
+#: model:ir.ui.view,arch_db:account_followup_interrests.account_followup_interest_form
 msgid "Late Interests"
 msgstr ""
 
 #. module: account_followup_interrests
-#: field:account_followup.followup,late_allowance_percentage:0
-msgid "Late allowance (%)"
+#: model:ir.model.fields,field_description:account_followup_interrests.field_account_followup_followup_late_allowance
+msgid "Late allowance"
 msgstr ""
 
 #. module: account_followup_interrests
-#: field:account_followup.followup,late_allowance_minimum:0
-msgid "Late allowance minimum (euro)"
+#: model:ir.model.fields,field_description:account_followup_interrests.field_account_followup_followup_late_interest_percentage
+msgid "Late interest (%)"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:159
+#: code:addons/account_followup_interrests/model/account_followup_report.py:147
+#: code:addons/account_followup_interrests/model/account_followup_report.py:148
 #, python-format
-msgid "Lit."
-msgstr ""
-
-#. module: account_followup_interrests
-#: field:account_followup.followup,monthly_late_interest_percentage:0
-msgid "Monthly late interest (%)"
-msgstr ""
-
-#. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:109
-#, python-format
-msgid "Overdue email sent to %s, "
+msgid "Overdue days"
 msgstr ""
 
 #. module: account_followup_interrests
@@ -119,56 +154,35 @@ msgid "Partner"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:235
-#, python-format
-msgid "Printed overdue payments report"
+#: model:ir.model.fields,field_description:account_followup_interrests.field_res_partner_payments_sum_of_allowances
+msgid "Sum of due allowances"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:154
-#, python-format
-msgid "Reference"
+#: model:ir.model.fields,field_description:account_followup_interrests.field_res_partner_payments_sum_of_interests
+msgid "Sum of due interests"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/report.py:89
+#: code:addons/account_followup_interrests/model/account_followup_report.py:138
 #, python-format
-msgid "The followup plan defined for the current company does not have any followup action."
+msgid "Total"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:234
+#: code:addons/account_followup_interrests/model/account_followup_report.py:103
 #, python-format
-msgid "The partner does not have any accounting entries to print in the overdue report for the current company."
+msgid "Total Due"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:240
+#: code:addons/account_followup_interrests/model/account_followup_report.py:92
 #, python-format
-msgid "There is no followup plan defined for the current company."
+msgid "Total Overdue"
 msgstr ""
 
 #. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:197
-#, python-format
-msgid "Total due"
-msgstr ""
-
-#. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:194
-#, python-format
-msgid "Total of due allowances"
-msgstr ""
-
-#. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:191
-#, python-format
-msgid "Total of due interests"
-msgstr ""
-
-#. module: account_followup_interrests
-#: code:addons/account_followup_interrests/model/partner.py:211
-#, python-format
-msgid "You became responsible to do the next action for the payment follow-up of"
+#: model:ir.model.fields,field_description:account_followup_interrests.field_res_partner_payments_sum_due
+msgid "Total amount due"
 msgstr ""
 
