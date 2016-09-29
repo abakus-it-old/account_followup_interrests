@@ -150,5 +150,5 @@ class account_report_context_followup(models.TransientModel):
     @api.multi
     def get_columns_types(self):
         if self.env.context.get('public'):
-            return ['date', 'date', 'number', 'number', 'number', 'number', 'text', 'number']
+            return ['date', 'date', 'number', 'number', 'number', 'number', 'number']
         return ['date', 'date', 'number', 'date', 'checkbox', 'number', 'number', 'number', 'number']
