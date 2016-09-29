@@ -79,6 +79,17 @@ class report_account_followup_report(models.AbstractModel):
                     'blocked': aml.blocked,
                 })
             total_all = total + total_interest + total_allowance
+            total = formatLang(self.env, total, currency_obj=currency)
+            line_num += 1
+            lines.append({
+                'id': line_num,
+                'name': '',
+                'type': 'total',
+                'footnotes': {},
+                'unfoldable': False,
+                'level': 0,
+                'columns': (not public and ['', ''] or []) + ['', '', '', '', '', total >= 0 and _('Total Due') or ''] + [total],
+            })
             if total_issued > 0:
                 total_issued = formatLang(self.env, total_issued, currency_obj=currency)
                 line_num += 1
@@ -91,17 +102,6 @@ class report_account_followup_report(models.AbstractModel):
                     'level': 0,
                     'columns': (not public and ['', ''] or []) + ['', '', '', '', '', _('Total Overdue')] + [total_issued],
                 })
-            total = formatLang(self.env, total, currency_obj=currency)
-            line_num += 1
-            lines.append({
-                'id': line_num,
-                'name': '',
-                'type': 'total',
-                'footnotes': {},
-                'unfoldable': False,
-                'level': 0,
-                'columns': (not public and ['', ''] or []) + ['', '', '', '', '', total >= 0 and _('Total Due') or ''] + [total],
-            })
             if total_interest > 0:
                 total_interest = formatLang(self.env, total_interest, currency_obj=currency)
                 line_num += 1
