@@ -75,7 +75,7 @@ class report_account_followup_report(models.AbstractModel):
                     'type': is_payment and 'payment' or 'unreconciled_aml',
                     'footnotes': {},
                     'unfoldable': False,
-                    'columns': [formatLangDate(aml.date), date_due, late_days] + (not public and [aml.expected_pay_date and (aml.expected_pay_date, aml.internal_note) or ('', ''), aml.blocked] or []) + [amount, interests, allowances, total_due],
+                    'columns': [formatLangDate(aml.date), date_due, late_days] + (not public and [aml.expected_pay_date and (aml.expected_pay_date, aml.internal_note) or ('', ''), aml.blocked] or []) + [amount, allowances, interests, total_due],
                     'blocked': aml.blocked,
                 })
             total_all = total + total_interest + total_allowance
