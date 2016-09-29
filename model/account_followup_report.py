@@ -78,7 +78,7 @@ class report_account_followup_report(models.AbstractModel):
                     'columns': [formatLangDate(aml.date), date_due, late_days] + (not public and [aml.expected_pay_date and (aml.expected_pay_date, aml.internal_note) or ('', ''), aml.blocked] or []) + [amount, allowances, interests, total_due],
                     'blocked': aml.blocked,
                 })
-            total_all = total + total_interest + total_allowance
+            total_all = total_issued + total_interest + total_allowance
             total = formatLang(self.env, total, currency_obj=currency)
             line_num += 1
             lines.append({
